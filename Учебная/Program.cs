@@ -22,9 +22,16 @@ namespace Учебная
             phoneBook.Add(new Contact("Сергей", "Брин", 799900000013, "serg@example.com"));
             phoneBook.Add(new Contact("Иннокентий", "Смоктуновский", 799900000013, "innokentii@example.com"));
 
-            var sortedContact = from s in phoneBook orderby s.Name, s.LastName select s;
+            var sortedContact1 = from s in phoneBook orderby s.Name, s.LastName select s;
             
-            foreach (var cont in sortedContact)
+            foreach (var cont in sortedContact1)
+                Console.WriteLine(cont.Name + " " + cont.LastName);
+
+            Console.WriteLine();
+
+            var sortedContact2 = phoneBook.OrderBy(s => s.Name).ThenBy(s  => s.LastName);
+
+            foreach (var cont in sortedContact2)
                 Console.WriteLine(cont.Name + " " + cont.LastName);
         }
 
